@@ -3,6 +3,15 @@
     [formGroup]="form"
     class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
     
+    <div class="mr-3">
+
+        <button class=" flex items-center justify-center text-gray-400" (click)="fileInput.click()">
+            <i class="fa-solid fa-paperclip text-xl"></i>
+        </button>
+
+        <input type="file" (change)="handleSelectedFile($event)" name="fileInput" id="fileInput" #fileInput hidden>
+    </div>
+
     <div class="flex-grow">
         <div class=" relative w-full">   
 
@@ -12,8 +21,6 @@
                 class=" flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
                 [placeholder]="placeholder"
                 formControlName="prompt"
-                [autocomplete]="disableCorrections ? 'on': 'off'"
-                [spellcheck]="disableCorrections ? 'on': 'off'"
             >
 
         </div>
@@ -27,3 +34,4 @@
     </div>
 
 </form>
+

@@ -4,7 +4,7 @@
     class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
     
     <div class="flex-grow">
-        <div class=" relative w-full">   
+        <div class=" flex">   
 
             <input type="text"
                 type="text"
@@ -12,9 +12,14 @@
                 class=" flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
                 [placeholder]="placeholder"
                 formControlName="prompt"
-                [autocomplete]="disableCorrections ? 'on': 'off'"
-                [spellcheck]="disableCorrections ? 'on': 'off'"
             >
+
+            <select formControlName="selectedOption" name="select" id="select" class="w-2/5 ml-5 border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10">
+                <option [value]="null">Select</option>
+                @for (option of options; track option.id) {
+                    <option [value]="option.id">{{option.text}}</option>
+                }
+            </select>
 
         </div>
     </div>
@@ -27,3 +32,4 @@
     </div>
 
 </form>
+
